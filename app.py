@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-    return "Hey, welcome to DevOps My flask app"
+def home():
+    return render_template("index.html")
 
 @app.route('/health')
 def health():
-    return {"status": "UP"}, 20
+    return jsonify(status="UP"), 200

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Satya DevOps App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 DevOps Flask App</h1>
+        <p>Dockerized | Deployed on AWS EC2</p>
+        <button onclick="checkHealth()">Check Health</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        async function checkHealth() {
+            const res = await fetch('/health');
+            const data = await res.json();
+            document.getElementById("status").innerText = "Status: " + data.status;
+        }
+    </script>
+</body>
+</html>
